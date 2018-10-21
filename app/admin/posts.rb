@@ -1,5 +1,6 @@
 ActiveAdmin.register Post do
   menu :label => "Blog Post",:priority => 2
+  permit_params :category_id, :admin_user_id, :title , :body
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

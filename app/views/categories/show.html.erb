@@ -1,15 +1,19 @@
-<h1>
-  <%= @category.title %>
-</h1>
+
 <% if @posts.each do |post|%>
- <h3>
+<div class="post">
+  <h2 class="title">
    <%= link_to post.title,post%>
- </h3>
+ </h2>
+ <div class="entry">
  <p>
    <%= post.body %>
 </p>
-</hr>
+</div>
+<div class="byline">
+  <p class="meta"><%= post.created_at.strftime("%b %d. %Y")%> | Posted by <a href="#">Someone</a></p>
+  <p class="links"><a href="post.html">Read More</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="b0x w">Comments</a></p>
+</div>
+</div>
  <% end.empty? %>
-   <p> Sorry! No Post Available </p>
+   <p style="text-color:#FFF"> Sorry! No Post Available </p>
 <% end %>
-<%= link_to "Back To Categories",categories_path %>

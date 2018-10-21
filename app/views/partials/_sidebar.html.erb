@@ -1,0 +1,52 @@
+<div id="sidebar">
+  <ul>
+    <li>
+      <div id="search" >
+        <form method="get" action="#">
+          <div>
+            <input type="text" name="s" id="search-text" value="" />
+            <input type="submit" id="search-submit" value="GO" />
+          </div>
+        </form>
+      </div>
+      <div style="clear: both;">&nbsp;</div>
+    </li>
+    <li>
+      <h2>Meet Me!</h2>
+      <p>Connect me at
+                                                    <br />
+                                                    <a style="color:#D93544;" href="https://github.com/kumaranshu72/" target="blank">Github</a>
+                                                </p>
+    </li>
+    <li>
+      <h2>Categories</h2>
+      <ul>
+        <% all_categories.each do |cat| %>
+        <li><%= link_to cat.title,category_path(:id => cat.id) %></li>
+        <% end %>
+      </ul>
+    </li>
+    <li>
+      <h2>Blogroll</h2>
+      <ul>
+        <ul>
+          <% all_posts.each do |post| %>
+          <li><%= link_to post.title,post_path(:id => post.id) %></li>
+          <% end %>
+        </ul>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+<!-- end #sidebar -->
+<div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+<p>&copy; 2018, My Ruby Blog - Sample Project</p>
+</div>
+</div>
+<!-- end #footer -->

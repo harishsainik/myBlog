@@ -8,4 +8,31 @@
     <p class="meta"><%= @post.created_at.strftime("%b %d. %Y")%> | Posted by <%= @post.admin_user.name %></p>
     <p class="links"><p> | Category : <%= link_to @post.category.title,category_path(:id => @post.category.id) %></p><a href="#" title="b0x w">Comments</a></p>
   </div>
+  <hr />
+<h3>Ad A Comment</h3>
+<%= form_for @post_comment do|f| %>
+
+  <%= f.hidden_field :post_id %>
+
+  <p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.submit "Post Comment" %>
+  </p>
+<% end %>
+
+<%= render :partial => 'partials/post_comment', :collection => @post.post_comment %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_034310) do
+ActiveRecord::Schema.define(version: 2018_10_21_050333) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "namespace"
@@ -45,13 +45,24 @@ ActiveRecord::Schema.define(version: 2018_10_21_034310) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "body"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_comments_on_post_id"
+  end
+
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title"
     t.integer "category_id"
     t.text "body"
-    t.integer "authorid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "admin_user_id"
   end
 
+  add_foreign_key "post_comments", "posts"
 end

@@ -11,14 +11,14 @@
 
   <body>
     <%= render 'partials/header' %>
-    <div class = 'fash'>
-    <% flash.each do |key, value| %>
-        <%= value %>
-      <% end %>
-  </div>
 	<div id="page">
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
+        <div class = 'fash'>
+        <% flash.each do |key, value| %>
+            <%= value %>
+          <% end %>
+      </div>
 				<div id="content">
 					<%= yield %>
 					<div style="clear: both;">&nbsp;</div>

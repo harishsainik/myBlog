@@ -7,4 +7,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post_comment = PostComment.new(:post => @post)
   end
+  private
+  def sanitize
+    ActionController::Base.helpers.sanitize(self)
+  end
 end
